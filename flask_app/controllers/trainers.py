@@ -39,27 +39,6 @@ def create_trainer():
     return render_template('new.html')
 
 
-# @app.route('/trainers/new/process', methods=['POST'])
-# def process_trainer():
-#     if 'user_id' not in session:
-#         return redirect('/user/login')
-    
-#     if not Trainer.validate_trainer(request.form):
-#         flash("Validation failed. Please check the form fields.", "danger")
-#         return render_template('new.html', messages=flash.get_flashed_messages())
-
-#     data = {
-#         'user_id': session['user_id'],
-#         'first_name': request.form['first_name'],
-#         'last_name': request.form['last_name'],
-#         'city': request.form['city'],
-#         'gym': request.form['gym'],
-#         'description': request.form['description'],  
-#     }
-#     Trainer.save(data)
-
-#     flash("Trainer created successfully!", "success")
-#     return redirect('/dashboard')
 
 
 @app.route('/trainers/new/process', methods=['POST'])
@@ -143,4 +122,5 @@ def process_trainer_update(id):
         'description': request.form['description'],
     }
     Trainer.update(data)
+    
     return redirect('/dashboard')

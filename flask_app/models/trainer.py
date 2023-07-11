@@ -88,7 +88,7 @@ class Trainer:
 
     @classmethod
     def update(cls, form_data):
-        query = "UPDATE trainers SET first_name=%(first_name)s, last_name=%(last_name)s WHERE id=%(id)s;"
+        query = "UPDATE trainers SET first_name=%(first_name)s, last_name=%(last_name)s,city=%(city)s,gym=%(gym)s,description=%(description)s WHERE id=%(id)s;"
         return connectToMySQL(cls.db).query_db(query, form_data)
 
     @classmethod
